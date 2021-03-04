@@ -64,11 +64,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *bmenu[]  = { "urxvt", "-e", "bmenu" };
+static const char *bmenu[]  = { "st", "-e", "bmenu" };
 static const char *pavucontrol[]  = { "urxvt", "-e", "pavucontrol" };
-static const char *zmenu[]  = { "zmenu" };
 static const char *firefox[]  = { "firefox" };
 static const char *pcmanfm[]  = { "pcmanfm" };
+static const char *displayselect[]  = { "sh ~/.scripts/displayselect" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -108,10 +108,9 @@ static Key keys[] = {
 	{ 0,                   XF86XK_Search,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bmenu } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = pavucontrol } },
-	{ MODKEY,                       XK_z,      spawn,          {.v = zmenu } },
+	{ MODKEY,                       XK_F1,     spawn,          {.v = displayselect } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = firefox } },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = pcmanfm } },
-	//{ MODKEY,                       XK_F3,     spawn,          {.v = pcmanfm } },
 };
 
 /* button definitions */
