@@ -66,6 +66,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *bmenu[]  = { "urxvt", "-e", "bmenu" };
 static const char *pavucontrol[]  = { "urxvt", "-e", "pavucontrol" };
+static const char *zmenu[]  = { "zmenu" };
+static const char *firefox[]  = { "firefox" };
+static const char *pcmanfm[]  = { "pcmanfm" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +108,10 @@ static Key keys[] = {
 	{ 0,                   XF86XK_Search,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = bmenu } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = pavucontrol } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = zmenu } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = firefox } },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = pcmanfm } },
+	//{ MODKEY,                       XK_F3,     spawn,          {.v = pcmanfm } },
 };
 
 /* button definitions */
