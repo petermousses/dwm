@@ -65,10 +65,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *bmenu[]  = { "st", "-e", "bmenu" };
-static const char *pavucontrol[]  = { "urxvt", "-e", "pavucontrol" };
+static const char *pavucontrol[]  = { "pavucontrol" };
 static const char *firefox[]  = { "firefox" };
 static const char *pcmanfm[]  = { "pcmanfm" };
 static const char *displayselect[]  = { "sh ~/.scripts/displayselect" };
+static const char *playpause[] = { "st", "-e", "playerctl", "play-pause" };
+static const char *next[] = { "st", "-e", "playerctl", "next" };
+static const char *previous[] = { "st", "-e", "playerctl", "previous" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -111,6 +114,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F1,     spawn,          {.v = displayselect } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = firefox } },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = pcmanfm } },
+	{ 0,                 XF86XK_AudioPlay,     spawn,          {.v = playpause } },
+	{ 0,                 XF86XK_AudioPrev,     spawn,          {.v = next } },
+	{ 0,                 XF86XK_AudioNext,     spawn,          {.v = previous } },
 };
 
 /* button definitions */
