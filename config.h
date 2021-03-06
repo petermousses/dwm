@@ -72,6 +72,7 @@ static const char *displayselect[]  = { "sh ~/.scripts/displayselect" };
 static const char *playpause[] = { "st", "-e", "playerctl", "play-pause" };
 static const char *next[] = { "st", "-e", "playerctl", "next" };
 static const char *previous[] = { "st", "-e", "playerctl", "previous" };
+static const char *Exit[] = { "st", "-e", "sh ~/.scripts/exit" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,6 +118,7 @@ static Key keys[] = {
 	{ 0,                 XF86XK_AudioPlay,     spawn,          {.v = playpause } },
 	{ 0,                 XF86XK_AudioPrev,     spawn,          {.v = next } },
 	{ 0,                 XF86XK_AudioNext,     spawn,          {.v = previous } },
+	{ MODKEY,                       XK_F4,     spawn,          {.v = Exit } },
 };
 
 /* button definitions */
