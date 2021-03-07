@@ -68,11 +68,11 @@ static const char *bmenu[]  = { "st", "-e", "bmenu" };
 static const char *pavucontrol[]  = { "pavucontrol" };
 static const char *firefox[]  = { "firefox" };
 static const char *pcmanfm[]  = { "pcmanfm" };
-static const char *displayselect[]  = { "sh ~/.scripts/displayselect" };
 static const char *playpause[] = { "st", "-e", "playerctl", "play-pause" };
 static const char *next[] = { "st", "-e", "playerctl", "next" };
 static const char *previous[] = { "st", "-e", "playerctl", "previous" };
-static const char *Exit[] = { "st", "-e", "sh ~/.scripts/exit" };
+static const char *Exit[] = { "/home/peterm/.scripts/exit.sh", NULL };
+static const char *displayselect[] = { "/home/peterm/.scripts/displayselect.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -118,7 +118,8 @@ static Key keys[] = {
 	{ 0,                 XF86XK_AudioPlay,     spawn,          {.v = playpause } },
 	{ 0,                 XF86XK_AudioPrev,     spawn,          {.v = next } },
 	{ 0,                 XF86XK_AudioNext,     spawn,          {.v = previous } },
-	{ MODKEY,                       XK_F4,     spawn,          {.v = Exit } },
+	{ MODKEY|ShiftMask,              XK_x,     spawn,          {.v = Exit } },
+	{ MODKEY|ShiftMask,              XK_d,     spawn,          {.v = displayselect } },
 };
 
 /* button definitions */
